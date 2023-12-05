@@ -1,5 +1,5 @@
-build
-test-ledger
+build/
+test-ledger/
 
 # Logs
 logs
