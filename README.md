@@ -3,6 +3,30 @@ A project that contains demonstration code for porting Solidity code to Solana
 
 # Installation
 
+## Install Rust
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+```
+source "$HOME/.cargo/env"
+```
+
+```
+rustup update
+```
+
+```
+rustc --version
+```
+
+```
+cargo --version
+```
+
+Choose option: `1) Proceed with installation (default)`
+
 ## Install NodeJs
 
 ```
@@ -56,13 +80,21 @@ sudo mv solang-linux-x86-64 /usr/local/bin
 ```
 
 ```
-chmod +x solang-linux-x86-64
+sudo chmod +x /usr/local/bin/solang-linux-x86-64
 ```
 
 ```
-solang –version
+solang solang --version
 ```
 
 ## Install anchor
+
+```
+cargo install --git https://github.com/coral-xyz/anchor anchor-cli
+```
+
+```
+cargo install --git https://github.com/coral-xyz/anchor anchor-lang
+```
 
 # Get the code
