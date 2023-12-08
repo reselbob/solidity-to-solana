@@ -89,12 +89,22 @@ solang solang --version
 
 ## Install anchor
 
+- Install the Anchor CLI:
+
 ```
 cargo install --git https://github.com/coral-xyz/anchor anchor-cli
 ```
+- Check the version to verify Anchor is up and running:
 
 ```
-cargo install --git https://github.com/coral-xyz/anchor anchor-lang
+anchor --version
 ```
-
 # Get the code
+
+```
+git clone https://github.com/reselbob/solidity-to-solana
+```
+
+```
+cd solidity-to-solana
+```
