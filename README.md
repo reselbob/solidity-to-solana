@@ -69,6 +69,11 @@ source ~/.profile
 solana --version
 ```
 
+```
+echo "export PATH=$PATH:~/.local/share/solana/install/active_release/bin" >> ~/.bashrc
+
+```
+
 ## Install solang
 
 ```
@@ -100,11 +105,19 @@ cargo install --git https://github.com/coral-xyz/anchor anchor-cli
 anchor --version
 ```
 # Get the code
+- Download the code from GitHub
 
 ```
 git clone https://github.com/reselbob/solidity-to-solana
 ```
 
+- Navigate to the source code working directory
+
 ```
 cd solidity-to-solana
+```
+- Load the `node_modules`
+
+```
+npm install
 ```
