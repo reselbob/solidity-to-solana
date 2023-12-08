@@ -6,23 +6,15 @@ A project that contains demonstration code for porting Solidity code to Solana
 ## Install NodeJs
 
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+sudo apt update -y
 ```
 
 ```
-source ~/.bashrc
+sudo apt install nodejs
 ```
 
 ```
-nvm current
-```
-
-```
-nvm install node
-```
-
-```
-nvm use node
+sudo apt update nodejs
 ```
 
 ```
