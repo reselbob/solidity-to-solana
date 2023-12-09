@@ -11,7 +11,7 @@ const {getKeys} = require('./KeyExtractor');
 const borsh = require('borsh');
 
 // Replace these with your actual values
-const PROGRAM_ID = "8tRKdj34cvV7Sueab9u1kcSL6g4Xmc7zzGT5WPz9R3Ui";
+const PROGRAM_ID = "9qy8MRw4fLFESZGv8WGdjyVdo3koscdvvn1o1vvBLJ2e";
 const RPC_ENDPOINT = "http://localhost:8899"; // Local Solana node endpoint
 const WALLET_SECRET = ""; // Secret key of your wallet
 const NUM1 = 10; // First number for addition

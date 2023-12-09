@@ -23,6 +23,8 @@ async function main() {
         transaction,
         [account]
     );
+
+    console.log(`1 SOL transfered from ${account.publicKey} to ${account2.publicKey}`);
 }
 
 main().catch((error) => console.error(error));

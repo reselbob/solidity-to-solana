@@ -1,4 +1,4 @@
-const { Connection, Keypair, LAMPORTS_PER_SOL, SystemProgram, TransactionInstruction, PublicKey } = require("@solana/web3.js");
+const { Connection, Keypair, LAMPORTS_PER_SOL, SystemProgram, TransactionInstruction, PublicKey, Transaction } = require("@solana/web3.js");
 const borsh = require("borsh");
 const {extractKeys} = require("./KeyExtractor");
 const { Schema, Vec, U64 } = require('borsh');
@@ -19,29 +19,21 @@ async function main() {
   const programAccountId = new PublicKey(PROGRAM_ID);
   const programAccountInfo = await connection.getAccountInfo(programAccountId);
 
-  const schema = new Map([
-    [AddInstructionArgs, { kind: "struct", fields: [["num1", "u64"], ["num2", "u64"]] }],
-  ]);
-
-  const transactionInstructionSchema = new Map([
-    ["add", { kind: "struct", fields: [["args", AddInstructionArgs]] }],
-  ]);
-
-  // Encode the transaction instruction
-  /** 
-  const encodedInstruction = borsh.encode(
-    {
-      add: {
-        num1,
-        num2,
+const value = {add: {num1: 10, num2: 20}};
+//onst schema = { struct: { 'add': {kind: "struct", fields: [["num1", "u64"], ["num2", "u64"]] } }};
+// Define the schema
+const schema = {
+  struct: {
+    add: {
+      struct: {
+        num1: 'u8', // Unsigned 8-bit integer
+        num2: 'u8', // Unsigned 8-bit integer
       },
     },
-  );
-*/
+  },
+};
 
-const encodedU16 = borsh.serialize('u16', 2);
-
-
+const encodedInstruction = borsh.serialize(schema, value);
 
 //const encodedInstruction = rootSchema.serialize(data);
 
