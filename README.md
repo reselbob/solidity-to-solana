@@ -1,14 +1,25 @@
 # solidity-to-solana
 A project that contains demonstration code for porting Solidity code to Solana
 
+- Installation
+    - [Install Rust](#install-rust)
+    - [Install NodeJs](#install-nodejs)
+    - [Install Yarn](#install-yarn)
+    - [Install TypeScript](#install-typescript)
+    - [Install Solana](#install-solana)
+    - [Install Solang](#install-solang)
+    - [Install Anchor](#install-anchor)
+  - [Get the code]()
+  - [Getting the local Solana blockchain node up and running]()
+  - [Creating a wallet in code]()
+  - [Get some SOL]()
+  - [Configuring the `.env` file for the source code project]()
+  - [Running a test to execute a simple transfer of SOL on the local Solana node]()
+  - [Compiling and deploying simple Solidity code to solana]()
+  - [Exercising the deployment with a NodeJS Web3 client]()
+  - [Exercising the deployment using the Anchor framework]()
+
 # Installation
-- [Install Rust](#install-rust)
-- [Install NodeJs](#install-nodejs)
-- [Install Yarn](install-yarn)
-- [Install TypeScript](#install-typescript)
-- [Install Solana](#install-solana)
-- [Install Solang](#install-solang)
-- [Install Anchor](#install-anchor)
 
 ## Install Rust
 
@@ -136,7 +147,7 @@ cd solidity-to-solana
 npm install
 ```
 
-# Getting the local Solana node up and running
+# Getting the local Solana blockchain node up and running
 
 - Configure the server to run on `localhost`
 
@@ -148,6 +159,8 @@ solana config set --url localhost
 ```
 solana-test-validator
 ```
+
+# Creating a wallet in code
 
 - Create a keypair for local wallet at runtime
 
@@ -181,6 +194,9 @@ WebSocket URL: ws://localhost:8900/ (computed)
 Keypair Path: ~/.config/solana/id.json 
 Commitment: confirmed
 ```
+
+# Get some SOL
+
 - Get some test SOL to pay for running the examples
 
 ```
@@ -280,7 +296,7 @@ The output will be a report of the Program Id which needs to be saved for later 
 Program Id: 26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE
 ```
 
-# Adding the PROGRAM ID to the test script
+# Exercising the deployment with a NodeJS Web3 client
 
 - Navigate to the `./test` folder
 
@@ -289,6 +305,8 @@ cd test
 ```
 
 MORE TO COME
+
+# Exercising the deployment using the Anchor framework
 
 
 
