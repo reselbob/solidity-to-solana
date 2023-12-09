@@ -14,7 +14,7 @@ A project that contains demonstration code for porting Solidity code to Solana a
 - [Creating a wallet in code](#creating-a-wallet-in-code)
 - [Get some SOL](#get-some-sol)
 - [Configuring the `.env` file for the source code project](#configuring-the-env-file-for-the-source-code-project)
-- [Running a test to execute a simple transfer of SOL on the local Solana node](#running-a-test-to-execute-a-simple-transfer-of-sol-on-the-local-solana-node)
+- [Running a script to execute a simple transfer of SOL on the local Solana node](#running-a-test-to-execute-a-simple-transfer-of-sol-on-the-local-solana-node)
 - [Compiling and deploying simple Solidity code to solana](#compiling-and-deploying-simple-solidity-code-to-solana)
 - [Exercising the deployment with a NodeJS Web3 client](#exercising-the-deployment-with-a-nodejs-web3-client)
 - [Exercising the deployment using the Anchor framework](#exercising-the-deployment-using-the-anchor-framework)
@@ -229,11 +229,11 @@ echo WALLET_SECRET=\"$TEMP_BUFFER\" >> ./test/.env
 ```
 This data is an encypted representation of the private and public keys for the wallet created earlier.
 
-# Running a test to execute a simple transfer of SOL on the local Solana node
+# Running a script to execute a simple transfer of SOL on the local Solana node
 
-- Navigate to the `test` folder in the source code working directory
+- Navigate to the `scripts` folder in the source code working directory
 ```
-cd ./test
+cd ./scripts
 ```
 
 - Take a snapshot of the balance of SOL held in the local wallet
@@ -248,9 +248,9 @@ You'll get output similar to the following assuming that you've done `solana air
 2
 ```
 
-- Run the test
+- Run the script
 ```
-node SimpleTest
+node Simple.js
 ```
 
 You'll see output similar to the following:
@@ -298,10 +298,10 @@ Program Id: 26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE
 
 # Exercising the deployment with a NodeJS Web3 client
 
-- Navigate to the `./test` folder
+- Navigate to the `./scripts` folder
 
 ```
-cd test
+cd scripts
 ```
 
 MORE TO COME
