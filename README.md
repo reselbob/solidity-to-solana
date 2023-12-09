@@ -2,6 +2,13 @@
 A project that contains demonstration code for porting Solidity code to Solana
 
 # Installation
+- Install Rust
+- Install NodeJs
+- Install Yarn
+- Install TypeScript
+- Install solana
+- Install solang
+- Install anchor
 
 ## Install Rust
 
