@@ -14,7 +14,7 @@ A project that contains demonstration code for porting Solidity code to Solana a
 - [Creating a wallet in code](#creating-a-wallet-in-code)
 - [Get some SOL](#get-some-sol)
 - [Configuring the `.env` file for the source code project](#configuring-the-env-file-for-the-source-code-project)
-- [Running a script to execute a simple transfer of SOL on the local Solana node](#running-a-test-to-execute-a-simple-transfer-of-sol-on-the-local-solana-node)
+- [Running a script to execute a simple transfer of SOL on the local Solana node](#running-a-script-to-execute-a-simple-transfer-of-sol-on-the-local-solana-node)
 - [Compiling and deploying simple Solidity code to solana](#compiling-and-deploying-simple-solidity-code-to-solana)
 - [Exercising the deployment with a NodeJS Web3 client](#exercising-the-deployment-with-a-nodejs-web3-client)
 - [Exercising the deployment using the Anchor framework](#exercising-the-deployment-using-the-anchor-framework)
