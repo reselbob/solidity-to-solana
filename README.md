@@ -1,5 +1,5 @@
 # solidity-to-solana
-A project that contains demonstration code for porting Solidity code to Solana
+A project that contains demonstration code for porting Solidity code to Solana and then exercising the ported code.
 
 - Installation
     - [Install Rust](#install-rust)
@@ -308,5 +308,5 @@ MORE TO COME
 
 # Exercising the deployment using the Anchor framework
 
-
+MORE TO COME
 
