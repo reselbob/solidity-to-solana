@@ -245,25 +245,25 @@ You'll get output similar to the following which is 1 less SOL than the beginnin
 - Compile the code from within the root of the source code working directory
 
 ```
-solang compile ./solidity/AddOperation.sol --target solana --output build
+solang compile ./solidity/SayHiContract.sol --target solana --output build
 ```
 - The output will be sent to files in the `./build` folder in the root, like so:
 
 ```
   build
-├── AddOperation.json
-└── AddOperation.so
+├── SayHiContract.json
+└── SayHiContract.so
 ```
 
 - Deploy the code from the root of the source code folder:
 
 ```
-solana program deploy ./build/AddOperation.so
+solana program deploy ./build/SayHiContract.so
 ```
 The output will be a report of the Program Id which needs to be saved for later use.
 
 ```
-Program Id: 9qy8MRw4fLFESZGv8WGdjyVdo3koscdvvn1o1vvBLJ2e
+Program Id: 26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE
 ```
 
 # Adding the PROGRAM ID to the test script
