@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract counter {
+contract Counter {
     // The counter value that is stored in the account
     uint64 private count;
 

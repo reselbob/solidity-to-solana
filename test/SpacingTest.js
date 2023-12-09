@@ -1,5 +1,5 @@
 const web3 = require("@solana/web3.js");
-const { Connection, Keypair, Transaction, SystemProgram, LAMPORTS_PER_SOL, PublicKey , TransactionInstruction, sendAndConfirmTransaction} = require("@solana/web3.js");
+const { Connection, Keypair, Transaction, SystemProgram, LAMPORTS_PER_SOL, PublicKey , TransactionInstruction} = require("@solana/web3.js");
 
 async function main() {
 // Airdrop SOL for paying transactions
