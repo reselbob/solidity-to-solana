@@ -2,13 +2,13 @@
 A project that contains demonstration code for porting Solidity code to Solana
 
 # Installation
-- Install Rust
-- Install NodeJs
-- Install Yarn
-- Install TypeScript
-- Install solana
-- Install solang
-- Install anchor
+- [Install Rust](#install-rust)
+- [Install NodeJs](#install-nodejs)
+- [Install Yarn](install-yarn)
+- [Install TypeScript](#install-typescript)
+- [Install Solana](#install-solana)
+- [Install Solang](#install-solang)
+- [Install Anchor](#install-anchor)
 
 ## Install Rust
 
@@ -69,7 +69,7 @@ npm install -g typescript
 tsc --version
 ```
 
-## Install solana
+## Install Solana
 
 ```
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
@@ -88,7 +88,7 @@ echo "export PATH=$PATH:~/.local/share/solana/install/active_release/bin" >> ~/.
 
 ```
 
-## Install solang
+## Install Solang
 
 ```
 wget https://github.com/hyperledger/solang/releases/download/v0.3.3/solang-linux-x86-64
@@ -106,7 +106,7 @@ sudo chmod +x /usr/local/bin/solang-linux-x86-64
 solang solang --version
 ```
 
-## Install anchor
+## Install Anchor
 
 - Install the Anchor CLI:
 
