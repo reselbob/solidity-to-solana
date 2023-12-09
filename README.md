@@ -190,7 +190,7 @@ Signature: 62y4upyARbrcGNoq4wo8uwXeGJybavnAbDcUuNB6aeGKYzyk6Ys2A9s8EAFqQgVZkqUHf
 TEMP_BUFFER=$(cat ~/.config/solana/id.json)
 ```
 
-- Create the .env file in the source code working directory using the value `$TEMP_BUFFER`
+- Create the `.env` file in the source code working directory using the value `$TEMP_BUFFER`
 
 From within the source code working directory, execute the following command
 
@@ -198,6 +198,47 @@ From within the source code working directory, execute the following command
 echo WALLET_SECRET=\"$TEMP_BUFFER\" >> ./test/.env
 ```
 This data is an encypted representation of the private and public keys for the wallet created earlier.
+
+# Running a test to execute a simple transfer of SOL on the local Solana node
+
+- Navigate to the `test` folder in the source code working directory
+```
+cd ./test
+```
+
+- Take a snapshot of the balance of SOL held in the local wallet
+
+```
+solana balance
+```
+
+You'll get output similar to the following assuming that you've done `solana airdrop 2` previously.
+
+```
+2
+```
+
+- Run the test
+```
+node SimpleTest
+```
+
+You'll see output similar to the following:
+
+```
+1 SOL transfered from 6gXC3f8cQ7tXHsx4ANfdTcNhEiJkb19QWbzFj88SFRce to 7eVYGEVAE35FKCyXsjBR2aCYbgpJaiBdZoYXmhWaMCNb
+```
+- Take another snapshot of the balance of SOL held in the local wallet
+
+```
+solana balance
+```
+You'll get output similar to the following which is 1 less SOL than the beginning balance.
+
+```
+1
+```
+
 
 # Compiling and deploying simple Solidity code to solana
 
@@ -224,3 +265,16 @@ The output will be a report of the Program Id which needs to be saved for later 
 ```
 Program Id: 9qy8MRw4fLFESZGv8WGdjyVdo3koscdvvn1o1vvBLJ2e
 ```
+
+# Adding the PROGRAM ID to the test script
+
+- Navigate to the `./test` folder
+
+```
+cd test
+```
+
+MORE TO COME
+
+
+
