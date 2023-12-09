@@ -45,6 +45,13 @@ sudo apt update nodejs
 node -v
 ```
 
+## Install Yarn
+You'll need it to run the tests under Anchor
+
+```
+sudo npm install --global yarn
+```
+
 ## Install TypeScript
 
 ```
