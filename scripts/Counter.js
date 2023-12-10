@@ -5,7 +5,7 @@ const { Connection, Transaction, LAMPORTS_PER_SOL, PublicKey, Keypair, Transacti
 const bs58 = require('bs58');
 const {extractKeys} = require("./KeyExtractor");
 
-const CONTRACT_ADDRESS = "6hzQd46Ejv1Ks85jgqRyxvod1enzXasER2TqiAb7srHQ";
+const CONTRACT_ADDRESS = "4D7x2h8nRQteb7XtfjPxexp2CYo52qGdxszKLm52Qgb5";
 
 
 async function main() {
@@ -14,68 +14,36 @@ async function main() {
   const blockhash = await connection.getLatestBlockhash();
   const keyData = await extractKeys();
   const wallet = keyData.keyPair;
+  const programId = new PublicKey(CONTRACT_ADDRESS);
+  const dataAccount = Keypair.generate();
 
   await connection.requestAirdrop(wallet.publicKey, LAMPORTS_PER_SOL);
   const getMessageFunctionId = "increment"; // Assuming it's a string identifier
 
-  const programId = new PublicKey(CONTRACT_ADDRESS);
-  const dataAccount = Keypair.generate();
 
-  // Create the transaction
-const transaction = SystemProgram.createAccount({
-  fromPubkey: Keypair.generate().publicKey,
-  newAccountPubkey: dataAccount.publicKey,
-  lamports: LAMPORTS_PER_SOL,
-  space: 8, // Account size for a counter
-  programId,
-});
+   // Create the transaction
+   const transaction = new Transaction();
 
-  const instruction =  new TransactionInstruction({
-    programId,
-    keys: [{ pubkey: dataAccount.publicKey, isSigner: false, isWritable: true }],
-    data: Buffer.from([1]), // Instruction index for increment
-  });
-  // Send the transaction
-  transaction.add(instruction);
-
-  // Send the transaction
-const sendTransaction = async (transaction) => {
-  try {
-    const signature = await connection.sendTransaction(transaction);
-    await connection.confirmTransaction(signature);
-    console.log(`Transaction confirmed: ${signature}`);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-sendTransaction(transaction);
-
-  //transaction.recentBlockhash = blockhash.blockhash;
-  //transaction.feePayer = wallet.publicKey
-  //transaction.partialSign(wallet);
-
-  /*
-  const txHash = await sendAndConfirmTransaction(
-    connection,
-    transaction,
-    [wallet],
-  );
-  */
-
-  // Send the transaction
-  //const signature = await connection.sendTransaction(transaction);
-
-  // Wait for the transaction to be confirmed
-  //await connection.confirmTransaction(signature, "finalized");
-
-  // Get the account data
-  //const accountData = await connection.getAccountInfo(accountPublicKey);
-
-  // Decode the message
-  //const message = accountData.data.toString("utf8");
-
-  //console.log("Message:", message);
+   // Create the instruction to initialize the counter
+   const newInstruction = {
+     programId: programId,
+     keys: [{ pubkey: wallet.publicKey, isSigner: false, isWritable: true }],
+     data: Buffer.from([0, 0, 0, 0, 0, 0, 0, 0]),
+   };
+ 
+   // Add the instruction to the transaction
+   transaction.add(newInstruction);
+ 
+   // Send the transaction
+   const signature = await connection.sendTransaction(transaction, wallet);
+   console.log(`Transaction signature: ${signature}`);
+ 
+   // Wait for the transaction to be confirmed
+   await connection.confirmTransaction(signature);
+ 
+   // Get the current counter value
+   const count = await getCount(dataAccount.publicKey);
+   console.log(`Current counter value: ${count}`);
 }
 
 // Call the function
