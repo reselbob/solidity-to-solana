@@ -288,7 +288,7 @@ solang compile ./solidity/Counter.sol --target solana --output build
 - Deploy the code from the root of the source code folder:
 
 ```
-solana program deploy ./build/SayHiContract.so
+solana program deploy ./build/Counter.so
 ```
 The output will be a report of the Program Id which needs to be saved for later use.
 
