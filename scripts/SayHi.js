@@ -11,11 +11,7 @@ const {
 
 const { extractKeys } = require("./KeyExtractor");
 
-const CONTRACT_ADDRESS = "G4ZBuo6UDkM9pLMpk9wcLA8eco2HqgZYv84CST2RwKbA";
-
-
-//const testKp = new web3.Keypair();
-
+const CONTRACT_ADDRESS = "FwBhFazLzHua2XruVJWbmf49Gtp61Vfa1tnpjYujfJTc";
 async function callGetMessage() {
 
   const connection = new Connection('http://localhost:8899', 'confirmed');
