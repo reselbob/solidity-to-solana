@@ -275,14 +275,14 @@ You'll get output similar to the following which is 1 less SOL than the beginnin
 - Compile the code from within the root of the source code working directory
 
 ```
-solang compile ./solidity/SayHiContract.sol --target solana --output build
+solang compile ./solidity/Counter.sol --target solana --output build
 ```
 - The output will be sent to files in the `./build` folder in the root, like so:
 
 ```
   build
-├── SayHiContract.json
-└── SayHiContract.so
+├── Counter.json
+└── Counter.so
 ```
 
 - Deploy the code from the root of the source code folder:
