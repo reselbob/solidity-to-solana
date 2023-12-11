@@ -303,8 +303,31 @@ Program Id: 26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE
 ```
 cd scripts
 ```
+## Update the `CONTRACT_ADDRESS` variable in the script, `SayHi.js`
 
-MORE TO COME
+- Open the file named `SayHi.js` and reset the Line 14 that starts with `const CONTRACT_ADDRESS =` with the
+value of the `Program Id` reported previously when you deployed the file `./build/SayHi.so` to the
+local Solana cluster. For example:
+
+```
+const CONTRACT_ADDRESS = "26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE"
+```
+
+- Save the file with the updated value for the `CONTRACT_ADDRESS`
+
+- Make sure the the `.env` file is properly configured
+
+- From within the `./scripts` directory, run the following command to exercise the deployed Solana contract:
+
+```
+node SayHi.js
+```
+
+You'll get output similar to the following:
+
+```
+TO BE PROVIDED
+```
 
 # Exercising the deployment using the Anchor framework
 
