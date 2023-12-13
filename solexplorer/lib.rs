@@ -9,11 +9,6 @@ use solana_program::{
 // Entry point function for the Solana program
 entrypoint!(process_instruction);
 
-// Define the function that returns the message
-fn get_message() -> String {
-    String::from("Hi from Solana!")
-}
-
 // Function to process Solana program instructions
 fn process_instruction(
     _program_id: &Pubkey,
@@ -22,7 +17,8 @@ fn process_instruction(
 ) -> ProgramResult {
     // Implement your program logic here if needed
     // For demonstration purposes, we'll just print the message to the console
-    msg!("{}", get_message());
+    msg!("{}", "Hi from Solana code!");
 
     Ok(())
 }
+

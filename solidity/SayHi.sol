@@ -1,14 +1,11 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract SayHi {
+contract MessageContract {
     constructor() {
-        getMessage();
-    }
-
-    event MessageLogged(string message);
-
-    function getMessage() public {
         string memory m = "Hi from Solidity code";
         emit MessageLogged(m);
     }
+
+    event MessageLogged(string message);
 }
