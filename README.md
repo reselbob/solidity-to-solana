@@ -15,9 +15,7 @@ A project that contains demonstration code for porting Solidity code to Solana a
 - [Get some SOL](#get-some-sol)
 - [Configuring the `.env` file for the source code project](#configuring-the-env-file-for-the-source-code-project)
 - [Running a script to execute a simple transfer of SOL on the local Solana node](#running-a-script-to-execute-a-simple-transfer-of-sol-on-the-local-solana-node)
-- [Compiling and deploying simple Solidity code to solana](#compiling-and-deploying-simple-solidity-code-to-solana)
-- [Exercising the deployment with a NodeJS Web3 client](#exercising-the-deployment-with-a-nodejs-web3-client)
-- [Exercising the deployment using the Anchor framework](#exercising-the-deployment-using-the-anchor-framework)
+- [Compiling and deploying simple Solidity code to solana using the Anchor framework](#compiling-and-deploying-simple-solidity-code-to-solana-using-the-anchor-framework)
 
 # Installation
 
@@ -270,66 +268,97 @@ You'll get output similar to the following which is 1 less SOL than the beginnin
 ```
 
 
-# Compiling and deploying simple Solidity code to solana
+# Compiling and deploying simple Solidity code to Solana using the Anchor framework
+
+- Create a unique `program id` for the code
+
+```
+solana-keygen new --outfile ./solidity/program_id.json 
+```
+
+You'll see output similar to the following:
+
+```
+Wrote new keypair to ./program_id.json
+===============================================================================
+pubkey: B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV
+===============================================================================
+```
+
+- Update the Solidity smart contract `./solidity/AnchorSayHi.sol`
+
+Revise the file `AnchorSayHi.sol` by changing the line...
+
+```javascript
+@program_id("<PUT_GENERATED_PROGRAM_ID_HERE>")
+```
+
+... to include the genereated program id, like so:
+
+```javascript
+@program_id("B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV")
+```
+
+- Update the client `./scripts/AnchorSayHi.js` to include the `program id`
+
+In the file `./scripts/AnchorSayHi.js` modify the line ...
+
+```javascript
+const CONTRACT_ADDRESS = "<PUT_GENERATED_PROGRAM_ID_HERE>";
+```
+
+... to include the genereated program id, like so:
+
+```javascript
+const CONTRACT_ADDRESS = "B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV";
+```
+
 
 - Compile the code from within the root of the source code working directory
 
 ```
-solang compile ./solidity/SayHi.sol --target solana --output build
+solang compile ./solidity/AnchorSayHi.sol --target solana --output build
 ```
-- The output will be sent to files in the `./build` folder in the root, like so:
+
+The output will be sent to files in the `./build` folder in the root, like so:
 
 ```
   build
-├── SayHi.json
-└── SayHi.so
+├── AnchorSayHi.json
+└── AnchorSayHi.so
 ```
 
 - Deploy the code from the root of the source code folder:
 
 ```
-solana program deploy ./build/SayHi.so
+solana program deploy --program-id ./program_id.json ./build/AnchorSayHi.so
 ```
-The output will be a report of the Program Id which needs to be saved for later use.
+
+The output will be a report of the Program Id
 
 ```
 Program Id: 26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE
 ```
 
-# Exercising the deployment with a NodeJS Web3 client
-
-- Navigate to the `./scripts` folder
+- Exercise the deployed program on the local Solana node
 
 ```
-cd scripts
-```
-## Update the `CONTRACT_ADDRESS` variable in the script, `SayHi.js`
+cd ./scripts
 
-- Open the file named `SayHi.js` and reset the Line 14 that starts with `const CONTRACT_ADDRESS =` with the
-value of the `Program Id` reported previously when you deployed the file `./build/SayHi.so` to the
-local Solana cluster. For example:
-
-```
-const CONTRACT_ADDRESS = "26xJZw7RcNu7fRqDFuX6MSW3wL7xq7vH6EZE5QaSy1zE"
+node AnchorSayHi.js
 ```
 
-- Save the file with the updated value for the `CONTRACT_ADDRESS`
+The output should be similar to the following:
 
-- Make sure the the `.env` file is properly configured
-
-- From within the `./scripts` directory, run the following command to exercise the deployed Solana contract:
-
-```
-node SayHi.js
-```
-
-You'll get output similar to the following:
-
-```
-TO BE PROVIDED
+Transaction confirmed: 3fxFwXdPvogCd3ZS3ezNUiuSUE659LY2L44QdTyCAGo6mNVwwcwRSnPYvBHYxKXaPJjr9s4mswgeuzDwBKUqQ4Rt
+[
+  "Program B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV invoke [1]",
+  "Program 11111111111111111111111111111111 invoke [2]",
+  "Program 11111111111111111111111111111111 success",
+  "Program log: Hi from Solidity code",
+  "Program B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV consumed 2565 of 200000 compute units",
+  "Program B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV success"
+]
 ```
 
-# Exercising the deployment using the Anchor framework
-
-MORE TO COME
 
