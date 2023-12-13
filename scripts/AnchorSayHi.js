@@ -11,7 +11,7 @@ const {
   const { Program, AnchorProvider } = require("@coral-xyz/anchor");
   // Generated IDL file
   const IDL = require("../build/SayHi.json");
-  const CONTRACT_ADDRESS = "3fuYYeHetUivCR7HWJ9n5AtiPq7Ztm2n45caxaYzG1Uy";
+  const CONTRACT_ADDRESS = "<PUT_GENERATED_PROGRAM_ID_HERE>";
   
   
   async function callGetMessage() {
