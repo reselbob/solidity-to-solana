@@ -350,6 +350,7 @@ node AnchorSayHi.js
 
 The output should be similar to the following:
 
+```
 Transaction confirmed: 3fxFwXdPvogCd3ZS3ezNUiuSUE659LY2L44QdTyCAGo6mNVwwcwRSnPYvBHYxKXaPJjr9s4mswgeuzDwBKUqQ4Rt
 [
   "Program B2FSjQhJMstz2db9C9RRwG4TqFWdPR7UPjZY5VUSPQUV invoke [1]",

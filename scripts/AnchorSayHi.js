@@ -10,7 +10,7 @@ const {
   
   const { Program, AnchorProvider } = require("@coral-xyz/anchor");
   // Generated IDL file
-  const IDL = require("../build/SayHi.json");
+  const IDL = require("../build/AnchorSayHi.json");
   const CONTRACT_ADDRESS = "<PUT_GENERATED_PROGRAM_ID_HERE>";
   
   

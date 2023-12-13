@@ -1,6 +1,7 @@
 .env
 build/
 test-ledger/
+program_id.json
 
 # Logs
 logs
