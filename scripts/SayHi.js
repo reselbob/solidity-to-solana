@@ -11,7 +11,7 @@ const {
   
   const { extractKeys } = require("./KeyExtractor");
   
-  const CONTRACT_ADDRESS = "5FWPj98F4TEfSvWxqYXQW4whdoLXTN2yeXfCJWfY7EjL";
+  const CONTRACT_ADDRESS = "<PUT_GENERATED_PROGRAM_ID_HERE>";
   async function callGetMessage() {
   
     const connection = new Connection('http://localhost:8899', 'confirmed');
