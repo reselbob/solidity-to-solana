@@ -12,6 +12,6 @@ contract Simple {
 
     // Function to check if the sender is the owner
     function isOwner() public view returns (bool) {
-        return msg.sender == owner;
+        return owner;
     }
 }
