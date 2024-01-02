@@ -1,11 +1,11 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 
-contract Counter {
+@program_id("<PUT_GENERATED_PROGRAM_ID_HERE>")
+contract counter {
     // The counter value that is stored in the account
     uint64 private count;
 
-    // The constructor is used to create a new counter accounton
+    // The constructor is used to create a new counter account
+    @payer(payer)  // The "payer" pays for the counter account creation
     constructor() {
         // Initialize the count to zero
         count = 0;
